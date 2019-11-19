@@ -55,7 +55,9 @@ func totalCompromised() -> Int {
     for agent in agents {
         
         if agent.compromised == true {
+            
             compromisedCount += 1
+            
         }
         
     }
@@ -101,12 +103,32 @@ print("\(findCleanAgents(agents: agents).count) clean agents out of \(agents.cou
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
+func findHighRisk() {
+    
+    for agent in agents {
+        
+        if agent.accessLevel >= 8 {
+            
+            var message = agent.realName + ", level: " + String(agent.accessLevel)
+            
+            if agent.compromised == true {
+                
+                message.append(" **WARNING** **COMPROMISED**")
+                
+            }
+            
+            print(message)
+            
+        }
+        
+    }
+    
+}
 
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
+findHighRisk()
 
 
 //: ## Step 9
